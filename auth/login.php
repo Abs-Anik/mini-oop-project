@@ -8,6 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $user->password = $_POST['password'];
     if($user->login()){
         $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_name'] = $user->name;
         header('Location: Dashboard.php');
         exit();
     }else{
@@ -31,21 +32,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <body>
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-6 pt-4">
-        <h2>Login Form</h2>
-        <form action="login.php" method="POST">
-            <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <div class="card">
+            <div class="card-title">
+            <h2 class="text-center mt-2">Login Form</h2>
             </div>
-            <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+            <div class="card-body">
+                <form action="login.php" method="POST">
+                    <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="register.php" class="btn btn-dark">Register</a>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="register.php" class="btn btn-dark">Register</a>
-        </form>
+        </div>
         </div>
     </div>
 </div>

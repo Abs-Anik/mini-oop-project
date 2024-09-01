@@ -15,10 +15,14 @@ include_once('auth.php');
 <body>
 
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-6 pt-4">
-            <h2>User Dashboard</h2>
-            <a href="logout.php" class="btn btn-danger">Logout</a>
+            <div class="card">
+                <div class="card-body">
+                <h2>Admin Dashboard <a href="logout.php" class="btn btn-danger float-right">Logout</a></h2>
+                <p>Welcome to the <?php echo $_SESSION['user_name']; ?> dashboard</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
